@@ -63,29 +63,29 @@ class SolicitudAdopcion(models.Model):
     def __str__(self):
         return f"Solicitud de {self.id_usuario.username} para adoptar a {self.id_mascota.nombre}"
     
-    def save(self, *args, **kwargs):
-        # Cambiar el estado de la mascota a 'En espera' al guardar la solicitud
-        self.id_mascota.estado = 'En espera'
-        self.id_mascota.save()
-        super().save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     # Cambiar el estado de la mascota a 'En espera' al guardar la solicitud
+    #     self.id_mascota.estado = 'En espera'
+    #     self.id_mascota.save()
+    #     super().save(*args, **kwargs)
     
-    def aceptar_solicitud(self):
-        self.estado = 'aceptado'
-        self.save()
+    # def aceptar_solicitud(self):
+    #     self.estado = 'aceptado'
+    #     self.save()
 
-        # Cambiar el estado de la mascota a 'Adoptado'
-        mascota = self.id_mascota
-        mascota.estado = 'Adoptado'
-        mascota.save()
+    #     # Cambiar el estado de la mascota a 'Adoptado'
+    #     mascota = self.id_mascota
+    #     mascota.estado = 'Adoptado'
+    #     mascota.save()
     
-    def denegar_solicitud(self):
-        self.estado = 'denegado'
-        self.save()
+    # def denegar_solicitud(self):
+    #     self.estado = 'denegado'
+    #     self.save()
 
-        # Cambiar el estado de la mascota a 'Disponible'
-        mascota = self.id_mascota
-        mascota.estado = 'Disponible'
-        mascota.save()
+    #     # Cambiar el estado de la mascota a 'Disponible'
+    #     mascota = self.id_mascota
+    #     mascota.estado = 'Disponible'
+    #     mascota.save()
 
 
 class FormularioVoluntario(models.Model):
@@ -101,13 +101,13 @@ class FormularioVoluntario(models.Model):
     def __str__(self):
         return f"Solicitud de voluntario de {self.id_usuario.username}"
     
-    def aceptar_solicitud(self):
-        self.estado = 'aceptado'
-        self.save()
+    # def aceptar_solicitud(self):
+    #     self.estado = 'aceptado'
+    #     self.save()
     
-    def denegar_solicitud(self):
-        self.estado = 'denegado'
-        self.save()
+    # def denegar_solicitud(self):
+    #     self.estado = 'denegado'
+    #     self.save()
         
     
 

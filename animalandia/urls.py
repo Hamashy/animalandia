@@ -24,6 +24,7 @@ from drf_yasg import openapi
 
 from accounts.api.router import router_user
 from pet.api.router import router_pet, router_solicitudAdopcion, router_formularioVoluntario
+from pet.api import views
 
 
 
@@ -54,6 +55,13 @@ urlpatterns = [
     path('api/', include(router_pet.urls)),
     path('api/', include(router_solicitudAdopcion.urls)),
     path('api/', include(router_formularioVoluntario.urls)),
+
+    #prueba
+
+    path('aceptar-solicitud-adopcion/<int:solicitud_id>/', views.aceptar_solicitud_adopcion, name='aceptar_solicitud_adopcion'),
+    path('denegar-solicitud-adopcion/<int:solicitud_id>/', views.denegar_solicitud_adopcion, name='denegar_solicitud_adopcion'),
+    path('aceptar-solicitud-voluntario/<int:solicitud_id>/', views.aceptar_solicitud_voluntario, name='aceptar_solicitud_voluntario'),
+    path('denegar-solicitud-voluntario/<int:solicitud_id>/', views.denegar_solicitud_voluntario, name='denegar_solicitud_voluntario'),
 
 
 ]
